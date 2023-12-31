@@ -59,10 +59,13 @@
 ### Features
 
 - User Registration and Authentication
+- User can un/subscribe to newsletter
+- Background cron job to send newsletter to subscribed users
+- [Other features]
+
 - [Checkout Wiki](https://github.com/conceptcodes/newsletter-node/wiki) for more details
 
 ### What I Learned ?
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -122,7 +125,7 @@ To get this API up and running, follow these steps:
    ```sh
    =====================================================
    ================= ENV: local ========================
-   ===== Newsletter listening on PORT: 8000 ===========
+   ===== Newsletter Node listening on PORT: 8000 ===========
    =====================================================
    ```
 
