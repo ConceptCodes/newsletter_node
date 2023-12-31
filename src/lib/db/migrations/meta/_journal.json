@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1703884942972,
+      "tag": "0000_round_proteus",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1703992038238,
+      "tag": "0001_nasty_roughhouse",
+      "breakpoints": true
+    }
+  ]
+}

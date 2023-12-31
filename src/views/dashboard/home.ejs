@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs', {title: 'Newsletter Node | Dashboard'});
+  %>
+  <body>
+    <div class="h-screen w-full flex flex-col lg:flex-row">
+      <%- include('sidebar.ejs'); %>
+      <main class="flex-1 p-5">
+        <h2 class="text-xl mb-5">Welcome back, <%= fullName %></h2>
+        <p>Here is the overview of your account:</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+          <div class="p-5 border rounded-md">
+            <h3 class="text-lg mb-2">Total Users</h3>
+            <p><%= totalUsers %></p>
+          </div>
+          <div class="p-5 border rounded-md">
+            <h3 class="text-lg mb-2">New Users Today</h3>
+            <p><%= newUsers %></p>
+          </div>
+          <div class="p-5 border rounded-md">
+            <h3 class="text-lg mb-2">Emails Sent</h3>
+            <p><%= emailsSent %></p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
