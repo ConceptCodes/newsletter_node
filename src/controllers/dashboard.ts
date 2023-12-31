@@ -16,12 +16,18 @@ export default class DashboardController {
     next: NextFunction
   ) => {
     try {
-      console.log("req.user", req.user)
-
-      const [totalUsers, newUsers, emailsSent] = await Promise.all([
+      const [
+        totalUsers,
+        newUsers,
+        emailsSent,
+        newsletters,
+        nextCampaignTimestamp,
+      ] = await Promise.all([
         this.service.totalUsers(),
         this.service.newUsers(),
-        this.service.emailsSent(),
+        this.service.totalEmailsSent(),
+        this.service.pastCampaigns(),
+        this.service.upcomingCampaign(),
       ]);
 
       res.render("dashboard/home", {
@@ -29,6 +35,8 @@ export default class DashboardController {
         totalUsers,
         newUsers,
         emailsSent,
+        newsletters,
+        nextCampaignTimestamp,
       });
     } catch (err) {
       next(err);

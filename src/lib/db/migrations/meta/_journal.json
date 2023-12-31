@@ -15,6 +15,13 @@
       "when": 1703992038238,
       "tag": "0001_nasty_roughhouse",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1704000989297,
+      "tag": "0002_light_black_queen",
+      "breakpoints": true
     }
   ]
 }

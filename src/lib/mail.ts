@@ -19,6 +19,11 @@ const loadTemplate = (name: string, args: Record<string, string>): string => {
     path.join(__dirname, "..", "emails", `${name}.html`),
     "utf8"
   );
+
+  if (!template) {
+    throw new Error(`Unable to load template ${name}`);
+  }
+
   return template.replace(/{{([^{}]*)}}/g, (a, b) => {
     const value = args[b];
     return typeof value === "string" ? value : a;
@@ -40,9 +45,12 @@ const templates: EmailTemplates = {
   },
 };
 
-export async function sendEmail<T extends keyof typeof templates>(
-  email: string,
-  template: T,
+/**
+ * NOTE: max is 50 so will need to chunk the user list
+ */
+export async function sendEmail(
+  emails: string[],
+  template: keyof typeof templates,
   data: Data
 ) {
   try {
@@ -50,8 +58,8 @@ export async function sendEmail<T extends keyof typeof templates>(
     const html = templates[template].component(data);
 
     await resend.emails.send({
-      from: "Zoomies <support@zoomies.dev>",
-      to: [email],
+      from: "Newsletter Node <newsletter-node@conceptcodes.dev>",
+      to: emails,
       subject,
       html,
     });

@@ -7,7 +7,7 @@
       <%- include('sidebar.ejs'); %>
       <main class="flex-1 p-5">
         <h2 class="text-xl mb-5">Welcome back, <%= fullName %></h2>
-        <p>Here is the overview of your account:</p>
+        <p>Next compaign scheduled for <%= nextCampaignTimestamp =></p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
           <div class="p-5 border rounded-md">
             <h3 class="text-lg mb-2">Total Users</h3>
@@ -22,6 +22,14 @@
             <p><%= emailsSent %></p>
           </div>
         </div>
+
+        <% if (newsletters.length > 0) { %> <%= include('past-campaigns.ejs', {
+        newsletter: newsletter }) %> <% } %> <% if (newsletters.length === 0) {
+        %>
+        <div class="mt-5">
+          <p>You have no past campaigns.</p>
+        </div>
+        <% } %>
       </main>
     </div>
   </body>

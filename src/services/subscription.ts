@@ -1,6 +1,7 @@
 import { InternalError } from "@/exceptions";
 import { db } from "@/lib/db";
 import { subscriptionTable } from "@/lib/db/schema";
+import { sendEmail } from "@/lib/mail";
 import type { SubscribeSchema } from "@/schemas";
 
 export default class AuthService {
@@ -10,6 +11,7 @@ export default class AuthService {
       await db.insert(subscriptionTable).values({
         email,
       });
+      await sendEmail([email], "welcome", { email });
     } catch (err) {
       console.error(err);
       // @ts-ignore
